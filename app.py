@@ -29,7 +29,7 @@ prompt = [
 
 # streamlit app
 st.set_page_config(page_title="Retrieve SQL Query via Gemini Model")
-st.header("Gemini Application to Retrieve SQL Query")
+st.header("Ask me about your database..")
 
 question = st.text_input("Input: ", key="input")
 submit = st.button("Ask Question")

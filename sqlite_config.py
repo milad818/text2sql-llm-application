@@ -2,13 +2,15 @@ import sqlite3
 import os
 
 
-# connect to SQLite database
-connection = sqlite3.connect("student.db")
 
-# create a cursor object to execute SQL commands
-cursor = connection.cursor()
 
 if not os.path.exists("./student.db"):
+
+    # connect to SQLite database
+    connection = sqlite3.connect("student.db")
+
+    # create a cursor object to execute SQL commands
+    cursor = connection.cursor()
 
     # create the table
     table_info = """
@@ -45,14 +47,14 @@ if not os.path.exists("./student.db"):
     # save (commit) the changes
     connection.commit()
 
-    # close connection
-    connection.close()
-
     # display the inserted entries
     print("The inserted entries are: ")
     table_data = cursor.execute("""SELECT * FROM STUDENT""")
     for row in table_data:
         print(row)
+
+    # close connection
+    connection.close()
 
 else:
     print("The database student.db has already been created!")
